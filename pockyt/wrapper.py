@@ -128,7 +128,7 @@ class Network(object):
     def post_request(cls, link, payload):
         request_data = json.dumps(payload).encode(API.ENCODING)
         headers = {
-            "Content-Type": API.CONTENT_TYPE,
+            "Content-Type": "%s; charset=%s" % (API.CONTENT_TYPE, API.ENCODING.upper()),
             "Content-Length": len(request_data),
             "User-Agent": cls.USER_AGENT,
         }
